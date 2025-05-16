@@ -1,0 +1,67 @@
+img.ft {
+  width: 250px;
+  border: 5px solid rgb(211, 3, 3);
+  border-radius: 50%;
+  position: relative;
+  right: -1550px;
+  top: 25px;
+}
+
+.ft:hover {
+  box-shadow: 0 8px 20px rgba(121, 0, 0, 0.8);
+  transform: scale(1.05);
+  border: 5px solid rgb(255, 0, 0);
+}
+
+h1.hhh {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 100px;
+  color: #FF0000;
+  text-shadow: 3px 3px 8px rgba(139, 0, 0, 0.8);
+  position: relative;
+  right: -600px;
+  user-select: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  cursor: default;
+  padding-bottom: 10px;
+}
+
+h1.hhh:hover {
+  color: #ff5555;
+  text-shadow: 5px 5px 12px rgba(255, 0, 0, 0.9);
+  border-color: #ff5555;
+}
+
+body {
+    margin: 0;
+  height: 100vh;
+   background-color: black;
+   background-image: url(Fundo\ de\ Halloween\ com\ respingos\ de\ sangue\ e\ gotas\ _\ Vetor\ Grátis.jpg);
+   background-repeat: no-repeat;
+   position: relative;
+   width: 9000px;
+   background-size: 100% 50%;
+}
+
+
+.BTT button {
+  background-color: #ff0202;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(168, 0, 0, 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  position: relative;
+  top: 0px;
+  right: 0px;
+
+}
+.BTT :hover {
+  background-color: #8B0000; 
+  box-shadow: 0 8px 20px rgba(119, 0, 0, 0.8);
+  transform: scale(1.05);
+}

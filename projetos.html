@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Console de berninhas</title>
+<link rel="stylesheett" href="css.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  body {
+    margin: 0;
+    background: #000;
+    color: #8B0000;
+    font-family: 'Share Tech Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .container {
+    display: flex;
+    gap: 20px;
+    background: #050904;
+    border: 2px solid #8B0000;
+    box-shadow: 0 0 30px #8B0000;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 960px;
+    width: 100%;
+  }
+
+  .console-container {
+    background: #000;
+    border: 2px solid #8B0000;
+    box-shadow: 0 0 25px #8B0000;
+    width: 600px;
+    height: 420px;
+    padding: 15px 20px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    line-height: 1.2;
+    font-size: 14px;
+    position: relative;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #console-output {
+    flex-grow: 1;
+    outline: none;
+  }
+
+  /* Cursor piscante */
+  #cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1em;
+    background-color: #8B0000;
+    margin-left: 2px;
+    animation: blink 1s steps(2, start) infinite;
+    vertical-align: bottom;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Área imagem anime */
+  .anime-image {
+    width: 280px;
+    height: 420px;
+    border: 2px solid #8B0000;
+    border-radius: 8px;
+    box-shadow: 0 0 20px #8B0000;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .anime-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 5px #8B0000);
+  }
+
+  /* Linha de carregamento "derrubando DC" */
+  #loading-line {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #8B0000;
+    letter-spacing: 3px;
+    font-family: 'Share Tech Mono', monospace;
+    user-select: none;
+    min-height: 24px;
+  }
+
+  /* Programas de hack simulados */
+  .program-list {
+    margin-top: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #8B0000;
+    border-top: 1px solid #8B0000;
+    padding-top: 8px;
+  }
+  .program-list b {
+    color: #8B0000;
+  }
+
+  /* Scrollbar estilizado */
+  .console-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  .console-container::-webkit-scrollbar-track {
+    background: #000;
+  }
+  .console-container::-webkit-scrollbar-thumb {
+    background: #8B0000;
+    border-radius: 4px;
+  }
+.BTT button {
+  background-color: #8B0000; 
+  color: #000; 
+  font-weight: bold;
+  font-size: 18px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(168, 0, 0, 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  position: relative;
+  top: -420px;
+  right: 630px;
+
+}
+.BTT :hover {
+  background-color: #8B0000; 
+  box-shadow: 0 8px 20px rgba(119, 0, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.hh {
+  position: relative; /* ou absolute */
+  top: -290px;
+right: -550px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #8B0000;
+  letter-spacing: 3px;
+  font-family: 'Share Tech Mono', monospace;
+  user-select: none;
+  min-height: 24px;
+}
+
+</style>
+</head>
+<body>
+    <h1>polenginho em ação!</h1>
+    <h1 class="hh">DERRUBANDO DC...</h1>
+    <div class="BTT"> <button onclick="window.location.href='INDEX.HTML'">INICIO</button></div>
+  <div class="container" aria-label="Simulador Hacker com console e anime">
+    <div class="console-container" aria-live="polite" aria-atomic="false" tabindex="0" role="region" aria-label="Console hacker realista">
+      <div id="loading-line" aria-live="off">DERRUBANDO DC...</div>
+      <pre id="console-output" aria-live="off" aria-atomic="false"></pre><span id="cursor" aria-hidden="true"></span>
+      <div class="program-list" aria-label="Lista de programas de hack">
+        <b>Programas rodando:</b><br>
+        • Olho de Deus<br>
+        • SpiderSense 9000<br>
+        • DataMiner Pro<br>
+        • GhostNet Scanner<br>
+        • ShadowCrypt<br>
+      </div>
+    </div>
+    <div class="anime-image" aria-label="Imagem estilo anime hacker tipo KIRA">
+      <img src="deus.jpg" alt="Anime estilo KIRA Death Note" />
+    </div>
+  </div>
+
+<script>
+  (function() {
+    const output = document.getElementById('console-output');
+    const container = document.querySelector('.console-container');
+
+    // Caracteres para o código hacker aleatório
+    const chars ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:<>,.?/\\';
+
+    // Gera string aleatória de tamanho variável
+    function randomString(min, max) {
+      const len = Math.floor(Math.random() * (max - min + 1)) + min;
+      let str = '';
+      for(let i = 0; i < len; i++) {
+        str += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return str;
+    }
+
+    // Função para adicionar uma linha simulada no console
+    function addLine() {
+      // Gera entre 3 a 6 "tokens" por linha
+      const countTokens = Math.floor(Math.random() * 4) + 3;
+      const tokens = [];
+      for(let i=0; i<countTokens; i++) {
+        tokens.push(randomString(3, 12));
+      }
+      const line = tokens.join(' ')+'\n';
+      output.textContent += line;
+
+      // Mantem o scroll no fundo
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // Loop infinito para adicionar linhas com intervalos aleatórios para simular fluxo de digitação
+    function startTyping() {
+      addLine();
+      // Intervalo entre linhas varia entre 50ms e 250ms para naturalidade
+      const delay = 50 + Math.random()*200;
+      setTimeout(startTyping, delay);
+    }
+
+    // Inicializa console vazio e começa a gerar linhas
+    output.textContent = '';
+    container.scrollTop = container.scrollHeight;
+
+    // Start typying automaticamente
+    startTyping();
+
+  })();
+</script>
+</body>
+</html>
+
