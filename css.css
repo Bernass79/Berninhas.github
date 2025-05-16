@@ -27,7 +27,7 @@ color: red;
   font-size: 20px;
   text-size-adjust: 20px;
 }
-}
+
 .ft:hover {
   box-shadow: 0 8px 20px rgba(121, 0, 0, 0.8);
   transform: scale(1.05);
